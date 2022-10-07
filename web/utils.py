@@ -58,9 +58,9 @@ def verify_credentials(username, password):
 
 
 def update_account(username, balance):
-    users.update({"Username": username}, {"$set": {"Own": balance}})
+    users.update_one({"Username": username}, {"$set": {"Own": balance}})
 
 
 def update_debt(username, balance):
-    users.update({"Username": username}, {"$set": {"Debt": balance}})
+    users.update_one({"Username": username}, {"$set": {"Debt": balance}})
 

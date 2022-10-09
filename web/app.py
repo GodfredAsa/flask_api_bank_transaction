@@ -1,18 +1,12 @@
 from flask import Flask, request, jsonify
 from flask_restful import Api, Resource
-from pymongo import MongoClient
-from utils import user_exist, verify_credentials, generate_return_dictionary, get_cash, update_account, find_user_debt, \
-    update_debt
+
+from utils import user_exist, verify_credentials, generate_return_dictionary, get_cash, update_account, find_user_debt,\
+    update_debt, users
 import bcrypt
 
 app = Flask(__name__)
 api = Api(app)
-
-client = MongoClient("mongodb://db:27017")
-
-db = client.BankApi
-
-users = db["Users"]
 
 
 class Register(Resource):
